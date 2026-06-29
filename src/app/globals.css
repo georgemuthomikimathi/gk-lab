@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-lab-dark: #0d1117;
+  --color-lab-accent: #58a6ff;
+  --color-lab-green: #3fb950;
+  --color-lab-gold: #d4a853;
+}
+
+body {
+  background: var(--color-lab-dark);
+  color: #e6edf3;
+  font-family: system-ui, -apple-system, sans-serif;
+}
