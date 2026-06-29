@@ -86,8 +86,8 @@ export const products: Product[] = [
 export const shop = {
   name: "GK Lab",
   tagline: "Digital drops · Courses · Merch · Consulting",
-  portfolioUrl: "http://localhost:3001",
-  vibeUrl: "http://localhost:3002",
+  portfolioUrl: "https://george-kimathi-portfolio.vercel.app",
+  vibeUrl: "https://gk-woo.vercel.app",
   mpesa: {
     enabled: false,
     shortcode: process.env.MPESA_SHORTCODE ?? "174379",
