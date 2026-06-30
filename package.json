@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start --port 3003",
     "lint": "next lint",
-    "assets": "python3 ../scripts/scan-assets.py"
+    "assets": "python3 scripts/sync-imtat-assets.py"
   },
   "dependencies": {
     "clsx": "^2.1.1",

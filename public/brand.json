@@ -1,0 +1,45 @@
+{
+  "name": "Georgie the Educator",
+  "persona": "Georgie the Educator",
+  "imtat": {
+    "fullName": "Introduction to MetaTrader and Algorithmic Trading",
+    "shortName": "IMTAT",
+    "moduleCount": 10
+  },
+  "youtube": {
+    "handle": "@georgietheeducator",
+    "url": "https://www.youtube.com/@georgietheeducator",
+    "series": [
+      "Crypto Monday",
+      "Trading Tuesday",
+      "Code Wednesday",
+      "Technology Thursday",
+      "Algo-Trading Friday"
+    ]
+  },
+  "sites": {
+    "portfolio": {
+      "local": "http://localhost:3001",
+      "theme": { "navy": "#0f2744", "gold": "#c9a227", "cream": "#f8f6f1" }
+    },
+    "gkLab": {
+      "local": "http://localhost:3003",
+      "theme": { "dark": "#0d1117", "accent": "#58a6ff", "green": "#3fb950", "gold": "#d4a853" }
+    },
+    "gkWoo": {
+      "local": "http://localhost:3002",
+      "note": "Merch / vibe site"
+    }
+  },
+  "voice": {
+    "provider": "ElevenLabs",
+    "envVoiceKey": "ELEVENLABS_VOICE_ID"
+  },
+  "copy": {
+    "tagline": "I teach everything",
+    "subtagline": "Crypto · Trading · Code · Tech · Algo — Mon–Fri",
+    "descriptor": "Engineer · Trader · Educator",
+    "shopTagline": "I teach everything",
+    "portfolioTagline": "I teach everything"
+  }
+}

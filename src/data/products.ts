@@ -1,3 +1,5 @@
+import { imtatBundle, imtatModules } from "./imtat";
+
 export type Product = {
   id: string;
   name: string;
@@ -7,49 +9,46 @@ export type Product = {
   category: "digital" | "course" | "merch" | "consulting";
   image?: string;
   badge?: string;
+  moduleNumber?: number;
 };
+
+const imtatProducts: Product[] = imtatModules.map((m) => ({
+  id: m.id,
+  name: `IMTAT Module ${String(m.number).padStart(2, "0")} — ${m.title}`,
+  description: m.summary,
+  price: m.price,
+  currency: "USD" as const,
+  category: "course" as const,
+  badge: m.badge ?? "Course",
+  image: "/assets/brand/IMTAT Logo Slide.png",
+  moduleNumber: m.number,
+}));
 
 export const products: Product[] = [
   {
     id: "btc-ea",
     name: "BTC Daily Trend Swing EA",
-    description: "MQL5 Expert Advisor — daily trend swing strategy for Bitcoin. Battle-tested logic from Georgie's algo-trading lab.",
+    description: "BTC daily swing EA.",
     price: 49,
     currency: "USD",
     category: "digital",
     badge: "Digital Drop",
   },
+  ...imtatProducts,
   {
-    id: "imtat-m01",
-    name: "IMTAT Module 01 — Navigate MT5",
-    description: "Full module: intro, lesson, outro scripts + ElevenLabs-ready narration exports.",
-    price: 19,
+    id: imtatBundle.id,
+    name: imtatBundle.title,
+    description: imtatBundle.summary,
+    price: imtatBundle.price,
     currency: "USD",
     category: "course",
-    badge: "Course",
-  },
-  {
-    id: "imtat-m05",
-    name: "IMTAT Module 05 — Expert Advisors",
-    description: "Build your first EA in MQL5. From OnInit to OnTick — the full pipeline.",
-    price: 29,
-    currency: "USD",
-    category: "course",
-    badge: "Course",
-  },
-  {
-    id: "imtat-bundle",
-    name: "IMTAT Full Bundle (10 Modules)",
-    description: "Complete MetaTrader & MQL5 algorithmic trading course. All modules, scripts, and templates.",
-    price: 149,
-    currency: "USD",
-    category: "course",
-    badge: "Best Value",
+    badge: imtatBundle.badge,
+    image: "/assets/brand/IMTAT Course Title Slide.png",
   },
   {
     id: "hoodie-woo",
     name: "GK WOO Hoodie",
-    description: "Drill-wave luxury hoodie. Smoke black with chrome GK logo. Print-on-demand.",
+    description: "Smoke black drill-wave hoodie.",
     price: 65,
     currency: "USD",
     category: "merch",
@@ -58,7 +57,7 @@ export const products: Product[] = [
   {
     id: "tee-best",
     name: "Best In Class Tee",
-    description: "NUST Merit Award tribute tee. Navy & gold. For the ones who topped the class 3 years straight.",
+    description: "Navy & gold merit tee.",
     price: 35,
     currency: "USD",
     category: "merch",
@@ -67,7 +66,7 @@ export const products: Product[] = [
   {
     id: "cap-engineer",
     name: "ECE Engineer Cap",
-    description: "Structured cap with embroidered GK monogram. Clean professional drip.",
+    description: "Embroidered GK cap.",
     price: 28,
     currency: "USD",
     category: "merch",
@@ -75,7 +74,7 @@ export const products: Product[] = [
   {
     id: "consult-1hr",
     name: "1-Hour Algo Trading Consult",
-    description: "Live session: MQL5 EA review, strategy debug, or ECE code walkthrough with George.",
+    description: "1-hour MQL5 or algo-trading session.",
     price: 7500,
     currency: "KES",
     category: "consulting",
@@ -85,9 +84,10 @@ export const products: Product[] = [
 
 export const shop = {
   name: "GK Lab",
-  tagline: "Digital drops · Courses · Merch · Consulting",
-  portfolioUrl: "http://localhost:3001",
-  vibeUrl: "http://localhost:3002",
+  tagline: "Drops, courses, merch & consulting — from Georgie's classroom",
+  portfolioUrl: process.env.NEXT_PUBLIC_PORTFOLIO_URL ?? "http://localhost:3001",
+  vibeUrl: process.env.NEXT_PUBLIC_GK_WOO_URL ?? "http://localhost:3002",
+  youtubeUrl: process.env.NEXT_PUBLIC_YOUTUBE_URL ?? "https://www.youtube.com/@georgietheeducator",
   mpesa: {
     enabled: false,
     shortcode: process.env.MPESA_SHORTCODE ?? "174379",
